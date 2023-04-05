@@ -1,0 +1,17 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django-related
+*.log
+*.pot
+local_settings.py
+db.sqlite3
+media/
+
+# Migrations
+**/migrations/
+
+# IDE related
+**/.idea/

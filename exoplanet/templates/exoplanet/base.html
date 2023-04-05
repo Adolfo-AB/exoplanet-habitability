@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <title>{% block title %}Exoplanet Habitability Project{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="left">
+      <a href="{% url 'exoplanet:index' %}" class="app-name">Exoplanet Habitability Project</a>
+    </div>
+    {% if not user.is_authenticated %}
+      <div class="right logged-out">
+        <a href="{% url 'exoplanet:register' %}">Register</a>
+        <a href="{% url 'exoplanet:login' %}">Log in</a>
+      </div>
+    {% else %}
+      <div class="right logged-in">
+        <a href="{% url 'exoplanet:logout' %}">Log out ({{ user.username }})</a>
+      </div>
+    {% endif %}
+  </nav>
+  {% block content %}
+  {% endblock %}
+</body>
+</html>
