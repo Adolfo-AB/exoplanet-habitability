@@ -4,7 +4,7 @@ from . import views
 
 app_name = "exoplanet"
 urlpatterns = [
-    # home page
+    # homepage
     path("", views.index, name="index"),
 
     # user management urls
@@ -15,4 +15,5 @@ urlpatterns = [
     # exoplanet API
     path('exoplanets/', views.ExoplanetListCreateView.as_view(), name='exoplanet_list_create'),
     path('exoplanets/<int:pk>/', views.ExoplanetRetrieveUpdateDestroyView.as_view(), name='exoplanet_retrieve_update_destroy'),
+
 ]

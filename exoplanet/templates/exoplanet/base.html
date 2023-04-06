@@ -5,11 +5,14 @@
   <meta charset="UTF-8">
   <title>{% block title %}Exoplanet Habitability Project{% endblock %}</title>
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <script src="{% static 'js/main.js' %}" defer></script>
 </head>
 <body>
   <nav class="navbar">
     <div class="left">
       <a href="{% url 'exoplanet:index' %}" class="app-name">Exoplanet Habitability Project</a>
+      <button id="browse-btn">Browse</button>
+      <button id="add-btn">Add</button>
     </div>
     {% if not user.is_authenticated %}
       <div class="right logged-out">
@@ -22,7 +25,13 @@
       </div>
     {% endif %}
   </nav>
-  {% block content %}
-  {% endblock %}
+  <div class="content">
+    {% csrf_token %}
+    <script>
+      var csrftoken = '{{ csrf_token }}';
+    </script>
+    {% block content %}
+    {% endblock %}
+  </div>
 </body>
 </html>
